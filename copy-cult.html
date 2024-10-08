@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from kilowat.ro/simulator//copy-cult.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Oct 2024 19:12:35 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular de depunere pentru persoane fizice</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-captcha/dist/js-captcha.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+      h3{
+        font-size: 18px;
+            font-weight: bold;
+            margin: 5px;
+      }
+      .kilowat-row {
+display: flex;
+flex-direction: row;
+gap: 10px;
+      }
+      .kilowat-logo {
+       height: 40px;
+       width: 200px;
+       margin: 10px;
+      }
+        
+      .kilowat-page-container{display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: space-around; 
+
+      }
+      .kilowat-join-button-container{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: top ;
+        padding: 10px;
+        
+      }
+      .kilowat-page-disclaimer {
+        font-size: 16px;
+        color: #004044;
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        max-width: 1000px;
+        
+      }
+      .kilowat-join-button{
+        border-radius: 10px;
+        border-width: 0px;
+        padding: 10px 20px;
+        font-family:'Roboto';
+        font-size: 22px;
+        color: #f9f9f9;
+        background-color:#9EB03A;
+        border-color:#004044;
+        box-shadow: 1px;
+        transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+
+
+      }
+      .kilowat-join-button:hover {
+       background-color: #004044; /* darker green */
+        color: #9EB03A;
+        transform: scale(1.05); /* slight scale up */
+       opacity: 0.9; /* slight opacity decrease */
+}
+
+      form  {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        max-width: 90%;
+        width: 800px;;
+        
+      }
+      .form-section {
+        width: 100%;
+        
+      }
+      .kilowat-two-sections {
+        display: flex;
+        flex-direction: row;   
+        gap: 20px;
+        
+      }
+      .kilowat-form-divider{
+         padding: 15px;
+          border: 1px solid #ddd;
+         border-radius: 5px;
+        background-color: #f9f9f9;
+        width: 100%;
+      }
+      .kilowat-form-group {
+        margin-bottom: 20px;
+      }
+      .kilowat-copy-popup {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    left: 0;
+    z-index: 10;
+    font-size: 12px;
+}
+      label{
+        margin: 0;
+      }
+      .kilowat-identity-section{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      
+
+      }
+      .kilowat-copy-button {
+        margin: 10px 0 0 0 ;
+        border-radius: 5px;
+      }
+      .kilowat-form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0px;
+      }
+      .kilowat-captcha-fields {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;    
+        margin-bottom: 1rem;
+      }
+      .kilowat-captcha-fields input{
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+      .kilowat-captcha-fields button{
+        border-radius: 10px;
+        border-width: 0px;
+        padding: 10px 20px;
+        font-family:'Roboto';
+        font-size: 22px;
+        color: #f9f9f9;
+        background-color:#9EB03A;
+        border-color:#004044;
+        box-shadow: 1px;
+        transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      }
+      .kilowat-form-group input,
+      .kilowat-form-group select {
+        width: 20rem;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      .kilowat-button-row {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .kilowat-button-row button {
+        border-radius: 10px;
+        border-width: 0px;
+        padding: 10px 20px;
+        font-family:'Roboto';
+        font-size: 22px;
+        color: #f9f9f9;
+        background-color:#9EB03A;
+        border-color:#004044;
+        box-shadow: 1px;
+        transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+
+
+      }
+      .kilowat-button-row button:hover {
+       background-color: #004044; /* darker green */
+        color: #9EB03A;
+        transform: scale(1.05); /* slight scale up */
+       opacity: 0.9; /* slight opacity decrease */
+}
+      .kilowat-checkbox-section {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 10px;
+      }
+      .kilowat-captcha {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .kilowat-captcha input {
+        margin-top: 10px;
+        padding: 5px;
+        font-size: 16px;
+      }
+
+      /* Timer styling */
+      #KilowatTimer {
+        font-size: 24px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+      }
+      input[type=checkbox]{
+        width: auto;
+      }
+      /* Popup styling */
+      #KilowatPopup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="kilowat-page-container nu-fura-de-la-kilowat">
+     <div class="kilowat-join-button-container">
+        <a href="https://kilowat.ro/live/"><button class="kilowat-join-button" type="button" onclick="">Urmareste Webinar!</button></a>
+       <a href="https://chat.whatsapp.com/LqBnYkCuoDTHslhNT0oVeM"><button class="kilowat-join-button" type="button">Intra in comunitate!</button></a>
+      </div> 
+
+      <div class="kilowat-logo nu-fura-de-la-kilowat">
+        <?xml version="1.0" encoding="UTF-8"?> 
+    
+       </div>
+    <h1>Formular de SIMULARE AFM</h1>
+    <h3 class="kilowat-page-disclaimer nu-fura-de-la-kilowat">Stimati clienti! Ne cerem scuze pentru introducerea vechiului formular, am decis acest lucru deoarece pe formularul asemanator celui AFM intampinam probleme tehnice si nu functiona tuturor.<br> Formularul cu functia de copiere este activ si va incurajam sa-l folositi!</h3>
+    <form id="kilowat-form">
+      <div class="kilowat-form-section nu-fura-de-la-kilowat">
+      <h3>Pas 1: Confirmare adresă de email depunere</h3>
+      <div class="kilowat-form-divider nu-fura-de-la-kilowat">
+      <!-- Step 1: Email Confirmation -->
+      <p>Introduceți adresa de email în baza căreia se va face depunerea. Adresa de email trebuie să fie identică în câmpul de confirmare adresă email.</p>
+      <div class="kilowat-form-group nu-fura-de-la-kilowat">
+        <label for="email">Adresă de email:</label>
+        <input type="email" id="email" placeholder="Introduceți adresa de email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+        <button type="button" class="kilowat-copy-button" style="margin: 5px 30px ;" onclick="copyToClipboard('email', this)">Copiaza Email</button>
+        <span class="kilowat-copy-popup" style="display: none;">Copied!</span>
+        </div>
+      <div class="kilowat-form-group nu-fura-de-la-kilowat">
+        <label for="confirmEmail">Confirmare Adresă de email:</label>
+        <div class="kilowat-row" style=" justify-content: space-between;">
+        <input type="email" id="confirmEmail" placeholder="Confirmați adresa de email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+      </div>
+      </div>
+  </div>
+  <div class="kilowat-form-section nu-fura-de-la-kilowat">
+    <h3>Pas 2: Date unitate de cult</h3> 
+  <div class="kilowat-form-divider  nu-fura-de-la-kilowat">
+  
+      <!-- Step 2: Identity Data -->
+      <p>Introduceți datele unitatei de cult si apoi continuati catre pasul 3 prin apasarea butonului "Continua cu pasul 3".</p>
+      <div class="kilowat-form-group nu-fura-de-la-kilowat">
+        <label for="fullName">Denumire unitate de cult:</label>
+        <input type="text" id="fullName" style="max-width: 740px; width: 100%;"  required >
+        <button type="button" class="kilowat-copy-button" onclick="copyToClipboard('fullName', this)">Copiază Nume</button>
+         <span class="kilowat-copy-popup" style="display: none;">Copied!</span>
+      </div>
+      <div class="kilowat-two-sections nu-fura-de-la-kilowat">
+      <section class="kilowat-identity-section nu-fura-de-la-kilowat">
+        <div class="kilowat-form-group nu-fura-de-la-kilowat">
+          <label for="serieAct">Cod de identitate fiscala:</label>
+          <input type="text" id="serieAct"  required >
+          <button type="button" class="kilowat-copy-button" onclick="copyToClipboard('serieAct', this)">Copiază Nume</button>
+          <span class="kilowat-copy-popup" style="display: none;">Copied!</span>
+       
+        </div>
+        <div class="kilowat-form-group nu-fura-de-la-kilowat">
+          <label for="validFrom">Nume reprezentant legal/Imputernicit</label>
+          <input type="text" id="validFrom"  required  >
+          <button type="button" class="kilowat-copy-button" onclick="copyToClipboard('validFrom', this)">Copiază Nume</button>
+          <span class="kilowat-copy-popup" style="display: none;">Copied!</span>
+         
+        </div>
+        <div class="kilowat-form-group nu-fura-de-la-kilowat">
+          <label for="adresa1">Adresa sediu social (Localitate, strada, număr):</label>
+          <input type="text" id="adresaSediu"  required >
+          <button type="button" class="kilowat-copy-button" onclick="copyToClipboard('adresaSediu', this)">Copiază Nume</button>
+          <span class="kilowat-copy-popup" style="display: none;">Copied!</span>
+        
+        </div>
+        <div class="kilowat-form-group nu-fura-de-la-kilowat">
+          <label for="adresa2">Adresa de implementare (Localitate, strada, număr):</label>
+          <input type="text" id="adresaImplementare"  required >
+          <button type="button" class="kilowat-copy-button" onclick="copyToClipboard('adresaImplementare', this)">Copiază Nume</button>
+          <span class="kilowat-copy-popup" style="display: none;">Copied!</span>
+        
+        </div>
+      </section>
+      <Section class="kilowat-identity-section nu-fura-de-la-kilowat" >
+
+        <div class="kilowat-form-group nu-fura-de-la-kilowat">
+          <label for="phone">Telefon:</label>
+          <input type="tel" pattern="[0-9\s\+\(\)-]{10,15}" id="phone" required >
+          <button type="button" class="kilowat-copy-button" onclick="copyToClipboard('phone', this)">Copiază Nume</button>
+          <span class="kilowat-copy-popup" style="display: none;">Copied!</span>
+        </div>
+        <div class="kilowat-form-group nu-fura-de-la-kilowat">
+          <label for="firstName">Prenume reprezentant legal/imputernicit:</label>
+          <input type="text" id="firstName"  required >
+          <button type="button" class="kilowat-copy-button" onclick="copyToClipboard('firstName', this)">Copiază Nume</button>
+          <span class="kilowat-copy-popup" style="display: none;">Copied!</span>
+    
+        </div>
+       
+        <div class="kilowat-form-group nu-fura-de-la-kilowat">
+          <label for="county">Județ sediu social:</label>
+          <select id="county" required >
+            <option value="" disabled selected>Selectați județul...</option>
+            <option value="AB">Alba</option>
+            <option value="AR">Arad</option>
+            <option value="AG">Argeș</option>
+            <option value="BC">Bacău</option>
+            <option value="BH">Bihor</option>
+            <option value="BN">Bistrița-Năsăud</option>
+            <option value="BR">Brăila</option>
+            <option value="BT">Botoșani</option>
+            <option value="BV">Brașov</option>
+            <option value="BZ">Buzău</option>
+            <option value="BU">București</option>
+            <option value="CS">Caraș-Severin</option>
+            <option value="CL">Călărași</option>
+            <option value="CJ">Cluj</option>
+            <option value="CT">Constanța</option>
+            <option value="CV">Covasna</option>
+            <option value="DB">Dâmbovița</option>
+            <option value="DJ">Dolj</option>
+            <option value="GL">Galați</option>
+            <option value="GR">Giurgiu</option>
+            <option value="GJ">Gorj</option>
+            <option value="HR">Harghita</option>
+            <option value="HD">Hunedoara</option>
+            <option value="IL">Ialomița</option>
+            <option value="IS">Iași</option>
+            <option value="IF">Ilfov</option>
+            <option value="MM">Maramureș</option>
+            <option value="MH">Mehedinți</option>
+            <option value="MS">Mureș</option>
+            <option value="NT">Neamț</option>
+            <option value="OT">Olt</option>
+            <option value="PH">Prahova</option>
+            <option value="SM">Satu Mare</option>
+            <option value="SJ">Sălaj</option>
+            <option value="SB">Sibiu</option>
+            <option value="SV">Suceava</option>
+            <option value="TR">Teleorman</option>
+            <option value="TM">Timiș</option>
+            <option value="TL">Tulcea</option>
+            <option value="VS">Vaslui</option>
+            <option value="VL">Vâlcea</option>
+            <option value="VN">Vrancea</option>
+          </select>
+        </div>
+
+        
+        <div class="kilowat-form-group nu-fura-de-la-kilowat">
+          <label for="county">Județ implementare:</label>
+          <select id="county" required >
+            <option value="" disabled selected>Selectați județul...</option>
+            <option value="AB">Alba</option>
+            <option value="AR">Arad</option>
+            <option value="AG">Argeș</option>
+            <option value="BC">Bacău</option>
+            <option value="BH">Bihor</option>
+            <option value="BN">Bistrița-Năsăud</option>
+            <option value="BR">Brăila</option>
+            <option value="BT">Botoșani</option>
+            <option value="BV">Brașov</option>
+            <option value="BZ">Buzău</option>
+            <option value="BU">București</option>
+            <option value="CS">Caraș-Severin</option>
+            <option value="CL">Călărași</option>
+            <option value="CJ">Cluj</option>
+            <option value="CT">Constanța</option>
+            <option value="CV">Covasna</option>
+            <option value="DB">Dâmbovița</option>
+            <option value="DJ">Dolj</option>
+            <option value="GL">Galați</option>
+            <option value="GR">Giurgiu</option>
+            <option value="GJ">Gorj</option>
+            <option value="HR">Harghita</option>
+            <option value="HD">Hunedoara</option>
+            <option value="IL">Ialomița</option>
+            <option value="IS">Iași</option>
+            <option value="IF">Ilfov</option>
+            <option value="MM">Maramureș</option>
+            <option value="MH">Mehedinți</option>
+            <option value="MS">Mureș</option>
+            <option value="NT">Neamț</option>
+            <option value="OT">Olt</option>
+            <option value="PH">Prahova</option>
+            <option value="SM">Satu Mare</option>
+            <option value="SJ">Sălaj</option>
+            <option value="SB">Sibiu</option>
+            <option value="SV">Suceava</option>
+            <option value="TR">Teleorman</option>
+            <option value="TM">Timiș</option>
+            <option value="TL">Tulcea</option>
+            <option value="VS">Vaslui</option>
+            <option value="VL">Vâlcea</option>
+            <option value="VN">Vrancea</option>
+          </select>
+        </div>
+      </Section>
+    </div>
+   </div>
+    </div>
+    <div class="kilowat-form-section nu-fura-de-la-kilowat">
+      <h3>Pas 3: Documente necesare</h3> 
+    <div class="kilowat-form-divider nu-fura-de-la-kilowat">
+      <!-- Step 3: Documents -->
+      <p>Încărcați toate documentele necesare pentru a putea continua. Dimensiunea maximă a unui fișier este de 5 MB.</p>
+      <div class="kilowat-form-group kilowat-row nu-fura-de-la-kilowat">
+        <label for="file2">1) Certificatul de atestare fiscala privind obligatile de plat câtre bugetul de stat, emis pe numele solicitantului de catre organul teritorial de specialitate al Ministerului Finantelor, in termen de valabilitate la data inscrierii in aplicatie; - (obligatoriu):</label>
+        <input type="file" style="border: 0;" id="file2" required>
+      </div>
+      <div class="kilowat-form-group kilowat-row nu-fura-de-la-kilowat">
+        <label for="file3">2) Certificatul de atestare fiscala privind impozitele si taxele locale si alte venituri ale bugetului local, emis pe numele solicitantului de catre autoritatea publica localà in a carei raza teritorialà isi are domiciliul, in termen de valabilitate la data inscrierii in aplicatie; (obligatoriu):</label>
+        <input type="file" style="border: 0;" id="file3" required>
+      </div>
+      <div class="kilowat-form-group kilowat-row nu-fura-de-la-kilowat">
+        <label for="file4">3) Extras de carte funciará, nu mai vechi de 60 de lile la data inscrieri in aplicatie, din care sà rezulte dreptul de proprietate al solicitantului asupra imobilului constructie deservit de sistemul de panouri fotovoltaice pentru care se solicita finantarea; in cazul in care sistemul de panouri fotovoltaice care deserveste constructia se amplaseaza pe teren, se va prezenta, in plus fat de extrasul de carte funciará aferent constructiei, extras de carte funciara, nu mai vechi de 60 de zile la data inscrierii in aplicatie, din care sà rezulte ca solicitantul este proprietar/detine un drept de folosinta asupra imobilului teren; acesta poate fi obtinut de solicitant si in format electronic; - (obligatoriu):</label>
+        <input type="file" style="border: 0;" id="file4" required>
+      </div>
+    </div>
+
+    </div>
+    <div class="kilowat-form-section nu-fura-de-la-kilowat">
+      <h3>Pas 4: Validare și depunere</h3> 
+    <div class="kilowat-form-divider nu-fura-de-la-kilowat">
+      <!-- Step 4: CAPTCHA and Submission -->
+      <p class=" nu-fura-de-la-kilowat" >Introduceți corect codul CAPTCHA și bifați că sunteți de acord cu termenii și condițiile.</p>
+      <div class="kilowat-captcha nu-fura-de-la-kilowat" id="captcha-2">    </div>
+      <div class="kilowat-captcha-fields nu-fura-de-la-kilowat">
+      <input type="text" id="captcha-input" placeholder="Introduceți codul captcha">
+      <button type="button" onclick="validateCaptcha2()">Verifică</button>
+    </div>
+      <!-- Terms and Conditions -->
+      <div class="kilowat-checkbox-section nu-fura-de-la-kilowat">
+        <input type="checkbox" id="agreeTerms1">
+        <label for="agreeTerms1">Declar cà sunt de acord cu participarea la Programul privind instalarea sistemelor de panouri fotovoltaice pentru producerea de energie electricã, in vederea acoperirii necesarului de consum si livrárii surplusului in reteaua nationalã.</label>
+      </div>
+      <div class="kilowat-checkbox-section nu-fura-de-la-kilowat">
+        <input type="checkbox" id="agreeTerms2">
+        <label for="agreeTerms2">Declar cá datele de mai sus sunt exacte si mi asum responsabilitatea pentru veridicitatea acestora.</label>
+      </div>
+      <div class="kilowat-checkbox-section nu-fura-de-la-kilowat">
+        <input type="checkbox" id="agreeTerms3">
+        <label for="agreeTerms3">Sunt de acord sã imi fie comunicate informatiile privind Programul privind instalarea sistemelor de panouri fotovoltaice pentru producerea de energie electrica, in vederea acoperirii necesarului de consum si livrârii surplusului in reteaua nationala electronic/telefonic.</label>
+      </div>
+      <div class="kilowat-checkbox-section nu-fura-de-la-kilowat">
+        <input type="checkbox" id="agreeTerms4">
+        <label for="agreeTerms4">Confirm ca am inteles si mi-am insusit in integralitate continutul.</label>
+      </div>
+    </div>
+  
+    </div>
+
+      <!-- Submit Button -->
+      <div class="kilowat-button-row nu-fura-de-la-kilowat">
+        <button type="button"  id ="timerButton" >Depune proiect</button>
+        <button type="submit"  id ="submitButton" style="display: none;">Depune proiect</button>
+      </div>
+
+    </form>
+
+    <!-- Timer -->
+    <div id="KilowatTimer">00:00:00</div>
+    <div id="KilowatPopup">
+      <h2>Timer finalizat!</h2>
+      <p>Timpul scurs: <span id="popupTime"></span></p>
+    </div>
+    <div class="kilowat-join-button-container">
+      <a href="https://kilowat.ro/live/"><button class="kilowat-join-button" type="button" onclick="">Urmareste Webinar!</button></a>
+     <a href="https://chat.whatsapp.com/LqBnYkCuoDTHslhNT0oVeM"><button class="kilowat-join-button" type="button">Comunitatea Kilowat!</button></a>
+    </div> 
+    <div style="display: flex; flex-direction: row;justify-content: center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/HXsJIdhFHyA" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+
+    </div>
+    </section>
+  </body>
+  
+  <script>
+    // CAPTCHA Logic
+    function generateCaptcha() {
+  var captchaContainer2 = document.getElementById('captcha-2'); 
+ var captchaText2 = generateRandomText(6);
+  captchaContainer2.innerText = captchaText2;
+}
+
+function generateRandomText(length) {
+  var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var randomText = '';
+  for (var i = 0; i < length; i++) {
+    randomText += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return randomText;
+}
+
+
+
+function validateCaptcha2() {
+  var userInput2 = document.getElementById('captcha-input-2').value;
+  var captchaText2 = document.getElementById('captcha-2').innerText;
+  if (userInput2 === captchaText2) {
+    alert('Captcha 2 este corectă!');
+  } else {
+    alert('Captcha 2 introdusă este incorectă!');
+    generateCaptcha();
+  }
+}
+
+generateCaptcha(); // Initial CAPTCHA
+
+    // Timer Logic
+    var timerElement = document.getElementById('KilowatTimer');
+    var popupElement = document.getElementById('KilowatPopup');
+    var popupTimeElement = document.getElementById('popupTime');
+    var seconds = 0;
+    var minutes = 0;
+    var hours = 0;
+    var intervalId;
+
+    function updateTimer() {
+      seconds++;
+      if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+          minutes = 0;
+          hours++;
+        }
+      }
+      timerElement.textContent = formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds);
+    }
+    function copyToClipboard(inputId, buttonElement) {
+    // Get the input element by the passed ID
+    var inputElement = document.getElementById(inputId);
+    
+    // Create a temporary textarea element to store the value
+    var tempInput = document.createElement('textarea');
+    tempInput.value = inputElement.value; // Set the value of the input to the temporary textarea
+    document.body.appendChild(tempInput); // Append the textarea to the body (required for copy to work)
+
+    // Select the content in the temporary textarea
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the text to the clipboard
+    document.execCommand('copy');
+
+    // Remove the temporary textarea
+    document.body.removeChild(tempInput);
+
+    // Show the popup near the button
+    var popup = buttonElement.nextElementSibling; // Get the next sibling (popup)
+    popup.style.display = 'inline'; // Show the popup
+
+    // Hide the popup after 2 seconds
+    setTimeout(function() {
+        popup.style.display = 'none';
+    }, 2000);
+}
+
+    function formatTime(time) {
+      return time < 10 ? '0' + time : time;
+    }
+   
+    function stopTimer() {
+      clearInterval(intervalId);
+      showPopup();
+    }
+    const visibleButton = document.getElementById('timerButton');
+const submitButton = document.getElementById('submitButton');
+const form = document.getElementById('kilowat-form');
+
+visibleButton.addEventListener('click', () => {
+  if (form.checkValidity()) {
+    // If the form is valid, stop the timer and proceed
+    stopTimer();
+  } else {
+    submitButton.click();
+  }
+});
+
+
+    function showPopup() {
+      popupTimeElement.textContent = timerElement.textContent;
+      popupElement.style.display = 'block';
+    }
+
+    function startTimerOnLoad() {
+      intervalId = setInterval(updateTimer, 1000);
+    }
+
+    window.onload = startTimerOnLoad;
+  </script>
+
+<!-- Mirrored from kilowat.ro/simulator//copy-cult.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Oct 2024 19:12:35 GMT -->
+</html>
